@@ -1,132 +1,108 @@
-# Five-minute presentation guion
+# Five-minute presentation guion — 3 slides
 
-This is the read-aloud version for the presentation. Keep the pace conversational. The goal is to explain the workflow clearly, not to read every label that appears on the slides.
+This is the read-aloud version for a three-slide presentation. Keep the pace conversational. Do not read every label on the slide; use the slide as the visual map and use this script to explain the story.
 
-## Slide 1 — What Spec-Driven Development changes (~1 minute)
+## Slide 1 — What Spec-Driven Development changes (~1 minute 20 seconds)
 
-GitHub Spec Kit implements what GitHub calls Spec-Driven Development.
+GitHub Spec Kit implements what GitHub calls **Spec-Driven Development**, or SDD.
 
-The main idea is a power inversion.
+The central idea is a power inversion.
 
-Traditionally, we start with requirements or design documents, then we implement, and eventually the code becomes the real source of truth. The problem is that the original documentation can become outdated.
+Traditionally, we start with requirements or design documents, then we implement, and over time the code becomes the real source of truth. The risk is that the original documentation becomes outdated.
 
-With Spec-Driven Development, we try to reverse that relationship. The specification and the implementation plan become durable artifacts that guide the code.
+With Spec-Driven Development, the specification and implementation plan become durable artifacts that continue guiding the implementation.
 
-The developer starts by expressing the **what and why**, before deciding the **how**.
+The developer starts with the **what and why**, before deciding the **how**.
 
-That distinction is important. `spec.md` contains the functional requirements, user scenarios and success criteria. It should describe what we want the system to do.
+That separation is important.
 
-Then `plan.md` contains the technical implementation: architecture, technologies, dependencies and design decisions.
+`spec.md` describes the functional requirements, user scenarios and success criteria. It focuses on what the system should do.
 
-This is also why I see Spec Kit as closer to **context engineering** than traditional prompt engineering. The prompt still matters, but the prompt is no longer responsible for carrying all of the context.
+`plan.md` describes how we are going to implement it: architecture, technologies, dependencies and technical decisions.
 
-The focus shifts from crafting one perfect prompt to engineering the context and workflow around the coding agent.
+This also changes how I think about AI-assisted development. Prompt quality still matters, but the prompt is no longer responsible for carrying all the context.
 
-## Slide 2 — The complete Spec Kit workflow (~1 minute 20 seconds)
+The context also comes from the Constitution, the specification, the plan, the tasks, the existing repository and the project state.
 
-At project level we start with the **Constitution**.
+So the focus shifts from trying to craft one perfect prompt to **engineering the context and workflow around the coding agent**.
 
-In our case, that part is already done and merged into `main`. We do not recreate the Constitution for every feature. It provides permanent project principles and constraints that later work should respect.
+## Slide 2 — The complete Spec Kit workflow and context (~1 minute 40 seconds)
 
-For a new feature, we start with **Specify**. We give the system a natural-language description of the feature and it creates the first specification.
+At project level we have the **Constitution**.
 
-Then we have **Clarify**. This is important because the first specification does not need to be perfect. Clarify helps detect ambiguity, asks targeted questions, and folds those answers back into the specification.
+In our case, that is already created and merged into `main`, so we do not recreate it for every feature. It acts as persistent project context and defines principles and constraints that later work should respect.
 
-After that comes **Plan**. This is where the technical implementation enters. The agent maps the business requirements to the real application architecture, technologies and dependencies. There is also a Constitution check here.
+For each new feature, we start with **Specify**. We give Spec Kit a natural-language description and it creates the first `spec.md`.
 
-Then we have **Checklist** and **Tasks**. Checklist helps review requirement quality, while Tasks converts the plan into dependency-ordered executable work.
+Then **Clarify** helps detect ambiguity, asks targeted questions and writes the answers back into the specification. This is why the first prompt does not need to be perfect.
 
-**Analyze** can then check consistency between the specification, plan and tasks before implementation.
+Next comes **Plan**. This is where the technical implementation enters. The agent maps the approved business requirements to the real architecture, dependencies and technology of the application. The plan also checks alignment with the Constitution.
+
+Then **Checklist** reviews requirement quality, and **Tasks** converts the plan into dependency-ordered executable work.
+
+**Analyze** can check consistency across the specification, plan and tasks before implementation.
 
 Then **Implement** executes those tasks.
 
-Finally, **Converge** compares the actual code against the specification and plan. If something is missing, it can add new tasks and we go through the loop again.
+Finally, **Converge** compares the real code against the artifacts. If something is missing, it can add new tasks and we go through the loop again.
 
-So the important point is that this is not simply a linear list of prompts. There are refinement steps, quality gates and a verification loop.
+So this is not just a sequence of slash commands. It is a workflow with refinement, quality gates and feedback.
 
-## Slide 3 — What I actually do in VS Code (~1 minute 40 seconds)
+And importantly, the stages share persistent repository artifacts: the Constitution, `spec.md`, `plan.md`, `tasks.md`, checklists and the existing codebase. Spec Kit also has agent-context mechanisms that keep relevant project state available to the coding agent.
 
-Now let's make this practical.
+That is the context-engineering part: **the prompt is one source of context, not the whole context**.
 
-Imagine I receive a Jira ticket for our existing financial Angular application.
+## Slide 3 — What I actually do in VS Code (~1 minute 45 seconds)
 
-The requirement is: add **Export to Excel** to the Reporting Dashboard table.
+Now let us make it practical.
 
-The export should respect the active dashboard filters and export all matching reporting rows, not only the rows currently visible on the page.
+Imagine I receive a Jira ticket for an existing financial Angular application.
 
-I open the solution in Visual Studio Code and use GitHub Copilot Chat in Agent mode.
+The requirement is to add **Export to Excel** to the Reporting Dashboard table.
 
-For this example, Copilot is the coding agent and Spec Kit provides the structured capabilities around it.
+The export should respect the active dashboard filters and export all matching reporting rows, not only the rows visible on the current page.
 
-I start with `speckit-specify`.
+I open the existing solution in Visual Studio Code and use GitHub Copilot Chat in Agent mode.
 
-I do not need to write a giant perfect prompt. I need enough business intent to create a useful first specification.
+For this example, **Copilot is the coding agent** and Spec Kit gives that agent a structured workflow and reusable capabilities.
+
+I start with `speckit-specify` and provide enough business intent to create a useful first specification. I do not need a giant perfect prompt.
 
 Then I read `spec.md`.
 
-If something is unclear, I run Clarify. For example: which columns should be exported? Does it export the current page or every filtered result? Are there permissions? What happens with very large datasets? What should happen if the export fails?
+If something is unclear, I use Clarify. For example: which reporting columns should be exported? Does it include all filtered rows? Are there permissions? What happens with large datasets? What happens if the export fails?
 
 Once the business behavior is clear, I run Plan.
 
-This is especially important in a brownfield application. The agent now investigates the existing Angular code: the Reporting Dashboard component, filters, services, API patterns, authorization, testing conventions and any existing export utilities.
+This is especially important in a brownfield application. The coding agent now investigates the existing Reporting Dashboard, filter state, Angular services, API patterns, authorization, tests and any existing export utilities.
 
-The goal is not to invent a brand-new architecture. The goal is to make the feature fit the existing application.
+The goal is not to invent a new architecture. The goal is to make the feature fit the application we already have.
 
-Then Tasks converts the approved plan into executable work.
+Tasks converts the approved plan into executable work. Checklist and Analyze give us quality checks before coding.
 
-After the quality checks, Implement allows Copilot to use its normal tools: search files, read code, edit files, run terminal commands and execute tests.
+Implement is when Copilot uses its normal tools: search files, read code, edit files, run commands and execute tests.
 
-And finally Converge verifies that what we implemented actually matches the intent.
+Finally, Converge verifies that the implementation still matches the specification and plan.
 
-The sentence I would emphasize here is:
+The key message is:
 
 > **We do not jump directly from Jira to generated code.**
 
 We progressively create, refine and verify the context before implementation.
 
-## Slide 4 — Repository structure and context engineering (~1 minute)
-
-This slide explains where all this context actually lives.
-
-Spec Kit is not relying only on the current Copilot chat conversation.
-
-At project level we have persistent context such as the Constitution.
-
-At feature level we have artifacts such as `spec.md`, `plan.md`, `tasks.md` and checklists.
-
-We also have the existing application code itself, which is extremely important in a brownfield project.
-
-Spec Kit also includes scripts and agent-context mechanisms that help keep the coding agent informed about relevant project state, such as the active feature, technology stack and current implementation context.
-
-So instead of thinking that one prompt contains everything the AI needs, we have multiple sources of engineered context.
-
-The human provides the intent.
-
-The repository provides project principles and existing code.
-
-The feature artifacts provide specification, plan and tasks.
-
-The coding agent has tools to read, search, modify and test the application.
-
-And the workflow provides the feedback loop.
-
-A simple way I like to summarize it is:
+A simple way to summarize the model is:
 
 > **Agentic Development = Model + Context + Tools + Workflow + Feedback.**
 
-GitHub Copilot gives us the coding-agent environment and tools. Spec Kit structures much of the context, workflow and verification around that agent.
+GitHub Copilot provides the coding-agent environment and development tools. Spec Kit structures much of the context, workflow, quality gates and verification around that agent.
 
-## Closing (~15 seconds)
+## Closing (~10 seconds)
 
-So the main takeaway is that Spec Kit is not about replacing developers with a better prompt.
-
-It gives us a structured way to move from business intent to implementation while keeping requirements, technical decisions, tasks and code connected.
-
-And that is why I see it as a practical example of the move from simple prompt engineering toward context engineering and more agentic software-development workflows.
+Spec Kit is not about replacing developers with a better prompt. It gives us a structured way to move from business intent to implementation while keeping requirements, technical decisions, tasks and code connected.
 
 ## Q&A — Is this multi-agent?
 
-Not by default. The simpler model is one coding agent using different Spec Kit capabilities and shared repository artifacts.
+Not by default. The simplest mental model is one coding agent using different Spec Kit capabilities and shared repository artifacts.
 
 Spec Kit can later become more automated through extensions, presets, workflows and bundles, including more sophisticated orchestration.
 
