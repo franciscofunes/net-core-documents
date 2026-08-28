@@ -1,22 +1,32 @@
-# PowerPoint Copilot prompt — redesign the existing screenshot-driven Spec Kit slide
+# PowerPoint Copilot prompt — edit the existing Spec Kit screenshot slide in place
 
 Use this prompt in **PowerPoint Copilot Web with the existing screenshot slide selected**.
 
-The goal is to redesign the selected slide, not create another slide. The current version already contains the three real screenshots, but they are too small in presentation mode. This prompt makes the screenshots the dominant visual content.
+This is an **EDIT-IN-PLACE prompt**. It must modify the selected slide only. It must **not create a new slide, duplicate the slide, replace the slide with a new layout, or delete and recreate any screenshot**.
+
+The current slide already contains the correct three screenshots and the correct three-stage sequence. The only goal is to make those existing screenshots much larger and easier to read in presentation mode.
 
 ---
 
 ## Prompt
 
-Redesign the **currently selected slide**. Do **not** create a new slide.
+Edit the **currently selected slide in place**.
+
+**Do not create a new slide. Do not duplicate this slide. Do not remove and recreate the slide. Do not replace the three existing screenshots. Reuse the objects already on this slide and only resize, crop, move, and simplify them.**
 
 Keep the existing Parametric corporate theme, fonts, colors, footer, confidentiality notice, and overall visual identity.
 
-The objective is to make the **three existing screenshots dramatically larger and readable in presentation mode**.
+Keep the existing three screenshots in the same order:
 
-### Keep this title
+**01 — ANALYZE → 02 — TASKS + GATES → 03 — IMPLEMENT**
+
+The objective is to make the **existing screenshots dramatically larger and readable in presentation mode**.
+
+### Keep the title
 
 **The workflow leaves real, reviewable artifacts**
+
+### Remove or reduce existing text to create space
 
 Remove the current subtitle:
 
@@ -26,123 +36,112 @@ Remove the explanatory sentences underneath the screenshots.
 
 Remove the large burgundy takeaway banner at the bottom.
 
-Preserve the three-stage story, but make each stage extremely compact:
+Shorten the three headings to:
 
-### 01 — ANALYZE
-**Find inconsistencies**
+**01 — ANALYZE**  
+*Find inconsistencies*
 
-### 02 — TASKS + GATES
-**Make work executable**
+**02 — TASKS + GATES**  
+*Make work executable*
 
-### 03 — IMPLEMENT
-**Act after gates pass**
+**03 — IMPLEMENT**  
+*Act after gates pass*
 
-Place the existing three screenshots immediately below these headings.
+Do not add new paragraphs, bullets, or captions.
 
 ---
 
-## Most important layout requirement
+## Resize the existing screenshot objects
 
-The **screenshots must be the dominant visual elements on the slide**.
+Use the existing screenshots already on the slide. **Do not replace them with placeholders or new images.**
 
-Increase each screenshot substantially so that the three screenshots together occupy approximately **75–80% of the usable slide area below the main title**.
+Resize and reposition them so that the screenshots together occupy approximately **75–80% of the usable slide area below the title**.
 
 Use almost all available width and vertical space.
 
-Minimize margins and gaps between the three screenshot panels while maintaining a clean corporate layout.
+Minimize margins and gaps between the screenshot areas while keeping a clean corporate layout.
 
-Do not place paragraphs or bullet points around the screenshots.
+Keep subtle arrows between the three stages if they still fit without reducing screenshot size.
 
-Do not shrink the screenshots to make room for explanatory text.
-
-**The screenshots are the explanation.**
-
-Keep subtle arrows between the screenshots to communicate:
-
-**Analyze → Tasks + Gates → Implement**
+The screenshots are the explanation.
 
 ---
 
-## Do not force equal screenshot dimensions
+## Preserve each screenshot's natural shape
 
-The screenshots have different natural aspect ratios. Do **not** force all three images into identical boxes.
+Do not force all three existing images into identical dimensions.
 
-Use an asymmetric layout that respects their content:
+Use an asymmetric layout that better fits their current aspect ratios:
 
 - **Analyze:** approximately 35% of available screenshot width
 - **Tasks + Gates:** approximately 27% of available screenshot width
 - **Implement:** approximately 38% of available screenshot width
 
-The middle Tasks screenshot can be taller and narrower. The Analyze and Implement screenshots can be wider.
+The middle Tasks screenshot can remain taller and narrower. The Analyze and Implement screenshots can be wider.
 
-Maintain the original aspect ratios and do not distort the images.
-
-If necessary, crop screenshots rather than scaling the complete screenshots down.
+Do not distort the images.
 
 ---
 
-## Crop priorities
+## Crop the existing images only when needed
 
-### Analyze
-Prioritize:
+If more readability is needed, crop the **existing screenshot objects in place** instead of shrinking the entire images.
+
+### Analyze — existing left image
+Prioritize keeping visible:
 - `/speckit.analyze`
 - `Specification Analysis Report`
 - `No files were modified`
-- the findings table showing Severity / Location / Summary / Recommendation
+- the first findings rows with Severity / Location / Summary / Recommendation
 
-The purpose is to make the read-only consistency check visible.
-
-### Tasks + Gates
-Prioritize:
+### Tasks + Gates — existing center image
+Prioritize keeping visible:
 - `Tasks: Export Account Summary`
-- prerequisites and readiness status
+- prerequisites / readiness status
 - Phase 1 and Phase 2 headings
 - the first concrete implementation tasks
-- visible task IDs, tests, and file paths where readable
 
-The purpose is to show intent becoming concrete, ordered, testable work.
-
-### Implement
-Prioritize:
+### Implement — existing right image
+Prioritize keeping visible:
 - `/speckit.implement`
-- implementation preflight
+- implementation preflight text
 - prerequisite/checklist checking
-- especially the line showing that the **checklist gate passes**
-- the transition into repository action
+- especially the line where the **checklist gate passes**
 
-The purpose is to show that Copilot acts only after the approved context and gates are loaded and checked.
+Do not delete these screenshots and do not ask me to insert them again.
 
 ---
 
-## Bottom takeaway
+## Bottom area
 
-Only if there is enough room without reducing screenshot size, add a small single-line takeaway at the bottom:
+If space remains after enlarging the screenshots, add only a small single-line text at the bottom:
 
 **Artifacts → Quality Gates → Code**
 
-Do **not** use a large colored banner for this takeaway.
+Do not use a large banner.
 
-If the takeaway competes with screenshot size, omit it completely.
-
----
-
-## Desired visual hierarchy
-
-1. **Screenshots — dominant**
-2. **Main slide title**
-3. **Three short stage labels/headlines**
-4. Everything else secondary or removed
-
-Do not add icons, stock imagery, AI illustrations, decorative diagrams, bullet lists, or explanatory paragraphs.
-
-The audience should immediately perceive that these are **real outputs from an actual Spec Kit workflow**, and the important areas of each screenshot should be substantially easier to see from a presentation screen.
+If this text would reduce screenshot size, omit it.
 
 ---
 
-## Speaker intent
+## Final constraint
 
-The slide should visually support this short explanation:
+This must remain the **same selected slide with the same three screenshot objects**.
 
-> “These are real outputs from the workflow. Analyze catches inconsistencies before coding. Tasks turns the approved design into executable work. Then Implement checks the gates and only then lets the coding agent act.”
+Allowed actions:
+- resize
+- crop
+- move
+- align
+- shorten/remove text
+- reduce spacing
 
-The slide should feel like **evidence**, not documentation.
+Not allowed:
+- create a new slide
+- duplicate the slide
+- replace the slide
+- delete/reinsert screenshots
+- create screenshot placeholders
+- introduce new graphics or imagery
+
+The final result should feel like **three large pieces of evidence** rather than a text-heavy slide.
