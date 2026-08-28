@@ -24,30 +24,44 @@ This new slide should answer:
 
 **“What did that workflow actually produce in the repository and in Copilot?”**
 
-### Suggested title
+### Title
 
 **The workflow leaves real, reviewable artifacts**
 
-Suggested subtitle:
+Optional subtitle, only if it does not reduce screenshot size:
 
-**Real outputs from the Export-to-Excel example — analysis, actionable tasks, and implementation readiness.**
+**Real outputs from the Export-to-Excel example**
 
-### Important layout rule
+### Critical layout rule
 
-Create a clean **three-column layout** with three large screenshot placeholders. Each screenshot area should have:
+The screenshots must dominate the slide.
 
-1. a short stage label
-2. a short explanatory headline
-3. one large rectangular image placeholder
-4. no more than 2–3 concise bullets underneath
+Use a clean **three-stage horizontal layout**:
 
-Do not use decorative AI imagery. The screenshots are the visual evidence.
+`01 ANALYZE → 02 TASKS + GATES → 03 IMPLEMENT`
 
-Leave the image areas empty or as clear placeholders so I can manually insert the screenshots afterward.
+Each stage should contain only:
+
+1. stage label
+2. one short headline
+3. one very large screenshot placeholder
+4. one one-line caption
+
+Do **not** add bullet lists.
+
+Do **not** add explanatory paragraphs.
+
+Do **not** add icons, stock imagery, AI illustrations, or decorative diagrams.
+
+Give approximately **65–70% of the usable slide height to the screenshots**.
+
+Make the three screenshot placeholders as large as possible while keeping them equally sized and aligned.
+
+Leave the screenshot areas empty or as simple placeholders so I can insert and crop the real screenshots manually afterward.
 
 ---
 
-## COLUMN 1 — ANALYZE
+## STAGE 1 — ANALYZE
 
 Stage label:
 
@@ -57,25 +71,21 @@ Headline:
 
 **Find inconsistencies before coding**
 
-Use a large screenshot placeholder labeled:
+Large screenshot placeholder label:
 
 **Insert screenshot: `/speckit.analyze` report**
 
-This screenshot will show the read-only Specification Analysis Report with categories, severity, file locations, summaries, and recommendations.
+One-line caption:
 
-Use concise bullets:
+**Cross-checks the artifacts and reports actionable inconsistencies.**
 
-- Cross-checks specification, plan, research, and tasks
-- Identifies missing, duplicated, or inconsistent work before implementation
-- Produces findings with severity, exact locations, and recommendations
+Use the screenshot showing the **Specification Analysis Report table** with severity, file locations, summary, and recommendations.
 
-Small emphasis line if space permits:
-
-**Read-only quality check — no code changed yet**
+Do not use the earlier Analyze conversation screenshot if the report-table screenshot is available.
 
 ---
 
-## COLUMN 2 — TASKS + CHECKLIST
+## STAGE 2 — TASKS + GATES
 
 Stage label:
 
@@ -83,30 +93,23 @@ Stage label:
 
 Headline:
 
-**Turn intent into executable, testable work**
+**Turn intent into executable work**
 
-Use a large screenshot placeholder labeled:
+Large screenshot placeholder label:
 
-**Insert screenshot: `tasks.md` or specification quality checklist**
+**Insert screenshot: `Tasks: Export Account Summary`**
 
-This screenshot will show either:
+One-line caption:
 
-- `Tasks: Export Account Summary` with phased task IDs and prerequisites, or
-- `Specification Quality Checklist: Export Account Summary`
+**Creates reviewable tasks and validates readiness before coding.**
 
-Use concise bullets:
+Prefer the `Tasks: Export Account Summary` screenshot because it visibly shows phased work, task IDs, prerequisites, tests, and file paths.
 
-- Tasks are ordered by dependency and tied to concrete files/tests
-- Checklist validates completeness, ambiguity, success criteria, and scope
-- The Constitution can require test-first behavior before implementation
-
-Small emphasis line if space permits:
-
-**The workflow produces artifacts that can be reviewed before Copilot writes code**
+The `Specification Quality Checklist` screenshot is a backup option if the tasks screenshot does not crop well.
 
 ---
 
-## COLUMN 3 — IMPLEMENTATION READY
+## STAGE 3 — IMPLEMENT
 
 Stage label:
 
@@ -114,72 +117,63 @@ Stage label:
 
 Headline:
 
-**Copilot acts only after the gates pass**
+**Code only after the gates pass**
 
-Use a large screenshot placeholder labeled:
+Large screenshot placeholder label:
 
 **Insert screenshot: `/speckit.implement` preflight**
 
-This screenshot will show Copilot reading the implementation prompt, checking hooks/prerequisites/checklist state, and confirming the implementation preflight before editing the codebase.
+One-line caption:
 
-Use concise bullets:
+**Copilot loads the approved context, checks prerequisites, then acts.**
 
-- Loads the approved feature context and task plan
-- Checks prerequisites and checklist status before coding
-- Then uses normal coding-agent tools: search, read, edit, terminal, tests
-
-Small emphasis line if space permits:
-
-**This is where the agent moves from planning context to action**
+Use the screenshot showing `/speckit.implement` where Copilot reads the implementation context, checks prerequisites/checklist status, and prepares to edit the repository.
 
 ---
 
-## Bottom takeaway banner
+## Bottom takeaway
 
-Add one strong full-width burgundy takeaway banner at the bottom, matching the style of the existing slides.
+Keep a thin, full-width burgundy takeaway banner at the bottom.
 
-Use this message:
-
-**Spec Kit makes the reasoning visible: analyze the artifacts → validate the work → then let the coding agent implement.**
-
-Alternative shorter version if space is tight:
+Use:
 
 **Artifacts first. Quality gates next. Code after.**
+
+Do not make the banner tall.
 
 ---
 
 ## Visual guidance
 
-- Keep this slide visually lighter than a documentation page.
-- The three screenshots should occupy most of the slide area.
-- Avoid long paragraphs.
-- Keep each column visually balanced.
-- Use burgundy for stage 1 and 3 accents and teal for stage 2, consistent with the surrounding slides.
-- Use thin separators or subtle borders around screenshot placeholders.
-- Make the three-stage progression clearly read left to right.
+- The screenshots are the evidence and must be the visual focus.
+- Use only minimal labels and captions.
+- Keep arrows between the three stages to reinforce progression.
+- Keep stage 1 and 3 burgundy accents and stage 2 teal, matching the existing deck.
+- Use subtle borders around screenshot placeholders.
 - Do not duplicate the detailed five-step workflow from the previous slide.
-- This slide should feel like **evidence / proof of the workflow**, not another theory slide.
+- This slide should feel like a **visual walkthrough of real Spec Kit outputs**, not a documentation page.
+- Leave enough room for manual cropping so the readable part of each screenshot can be enlarged.
 
 ---
 
 ## Screenshot selection guidance
 
-When I manually add the images, use these three screenshots in this order:
+Use these three screenshots in this order:
 
-1. **Analyze:** the screenshot showing `/speckit.analyze` and the `Specification Analysis Report` table with severity, locations, summary, and recommendations.
-2. **Tasks + Gates:** the screenshot showing either `Tasks: Export Account Summary` or `Specification Quality Checklist: Export Account Summary`. Prefer the tasks screenshot if only one can be used because it shows concrete phased implementation work and test requirements.
-3. **Implement:** the screenshot showing `/speckit.implement` preflight where Copilot checks hooks, prerequisites, checklist status, and then prepares to edit the repository.
+1. **Analyze:** the `/speckit.analyze` screenshot with the `Specification Analysis Report` table showing severity, locations, summaries, and recommendations.
+2. **Tasks + Gates:** the `Tasks: Export Account Summary` screenshot showing phased tasks, prerequisites, tests, and concrete file paths.
+3. **Implement:** the `/speckit.implement` preflight screenshot showing checks of hooks, prerequisites, checklist status, and repository readiness before coding.
 
-Do not use the Constitution screenshot as one of the three primary images on this slide. The Constitution is already explained conceptually in the previous workflow slide and is less useful as visual evidence of the feature execution path.
+Do not use the Constitution screenshot as one of the three primary images on this slide. Constitution is already covered in the conceptual workflow slide.
 
-Do not use both Analyze screenshots; select the one with the report table because it communicates value faster to the audience.
+Do not use both Analyze screenshots; use only the report-table version.
 
 ---
 
-## Speaker intent for this slide
+## Speaker intent
 
-The slide should make it easy for the presenter to say:
+The slide should make it easy to say:
 
-> “This is what I mean by context and workflow rather than one giant prompt. Analyze gives me a structured consistency report. Tasks and checklists turn the agreed specification into reviewable, testable work. Only after those gates pass does Copilot move into implementation and start acting on the codebase.”
+> “This is the real output of the workflow. Analyze finds inconsistencies. Tasks turn the approved design into reviewable work. Only after the gates pass does Copilot start acting on the codebase.”
 
-The audience should leave this slide understanding that Spec Kit produces **persistent, reviewable artifacts and explicit quality gates before code generation**.
+The audience should leave understanding that Spec Kit produces **visible, reviewable artifacts and quality gates before code generation**.
