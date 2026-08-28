@@ -1,179 +1,148 @@
-# PowerPoint Copilot prompt — add a screenshot-driven Spec Kit example slide
+# PowerPoint Copilot prompt — redesign the existing screenshot-driven Spec Kit slide
 
-Use this prompt in **PowerPoint Copilot Web** to create **one new slide immediately after the existing slide titled `What I actually do in VS Code`**.
+Use this prompt in **PowerPoint Copilot Web with the existing screenshot slide selected**.
 
-The existing `What I actually do in VS Code` slide must remain unchanged. This new slide should complement it with real screenshots from the Export-to-Excel Spec Kit example.
-
-The new slide must be created in the same Parametric corporate template and visual language as the surrounding deck.
+The goal is to redesign the selected slide, not create another slide. The current version already contains the three real screenshots, but they are too small in presentation mode. This prompt makes the screenshots the dominant visual content.
 
 ---
 
 ## Prompt
 
-Create **one new slide** after the currently selected slide.
+Redesign the **currently selected slide**. Do **not** create a new slide.
 
-Do **not** modify the existing slide. Preserve the current Parametric corporate template, footer, confidentiality notice, typography, spacing, burgundy/teal/black color system, and section heading style.
+Keep the existing Parametric corporate theme, fonts, colors, footer, confidentiality notice, and overall visual identity.
 
-The purpose of the new slide is to show **real evidence from the Spec Kit workflow** using three screenshots from the Export-to-Excel example in the existing financial Angular application.
+The objective is to make the **three existing screenshots dramatically larger and readable in presentation mode**.
 
-The previous slide already explains the conceptual flow:
-
-`Specify + Clarify → Plan → Tasks + Gates → Implement → Converge`
-
-This new slide should answer:
-
-**“What did that workflow actually produce in the repository and in Copilot?”**
-
-### Title
+### Keep this title
 
 **The workflow leaves real, reviewable artifacts**
 
-Optional subtitle, only if it does not reduce screenshot size:
+Remove the current subtitle:
 
 **Real outputs from the Export-to-Excel example**
 
-### Critical layout rule
+Remove the explanatory sentences underneath the screenshots.
 
-The screenshots must dominate the slide.
+Remove the large burgundy takeaway banner at the bottom.
 
-Use a clean **three-stage horizontal layout**:
+Preserve the three-stage story, but make each stage extremely compact:
 
-`01 ANALYZE → 02 TASKS + GATES → 03 IMPLEMENT`
+### 01 — ANALYZE
+**Find inconsistencies**
 
-Each stage should contain only:
+### 02 — TASKS + GATES
+**Make work executable**
 
-1. stage label
-2. one short headline
-3. one very large screenshot placeholder
-4. one one-line caption
+### 03 — IMPLEMENT
+**Act after gates pass**
 
-Do **not** add bullet lists.
-
-Do **not** add explanatory paragraphs.
-
-Do **not** add icons, stock imagery, AI illustrations, or decorative diagrams.
-
-Give approximately **65–70% of the usable slide height to the screenshots**.
-
-Make the three screenshot placeholders as large as possible while keeping them equally sized and aligned.
-
-Leave the screenshot areas empty or as simple placeholders so I can insert and crop the real screenshots manually afterward.
+Place the existing three screenshots immediately below these headings.
 
 ---
 
-## STAGE 1 — ANALYZE
+## Most important layout requirement
 
-Stage label:
+The **screenshots must be the dominant visual elements on the slide**.
 
-**01 — ANALYZE**
+Increase each screenshot substantially so that the three screenshots together occupy approximately **75–80% of the usable slide area below the main title**.
 
-Headline:
+Use almost all available width and vertical space.
 
-**Find inconsistencies before coding**
+Minimize margins and gaps between the three screenshot panels while maintaining a clean corporate layout.
 
-Large screenshot placeholder label:
+Do not place paragraphs or bullet points around the screenshots.
 
-**Insert screenshot: `/speckit.analyze` report**
+Do not shrink the screenshots to make room for explanatory text.
 
-One-line caption:
+**The screenshots are the explanation.**
 
-**Cross-checks the artifacts and reports actionable inconsistencies.**
+Keep subtle arrows between the screenshots to communicate:
 
-Use the screenshot showing the **Specification Analysis Report table** with severity, file locations, summary, and recommendations.
-
-Do not use the earlier Analyze conversation screenshot if the report-table screenshot is available.
+**Analyze → Tasks + Gates → Implement**
 
 ---
 
-## STAGE 2 — TASKS + GATES
+## Do not force equal screenshot dimensions
 
-Stage label:
+The screenshots have different natural aspect ratios. Do **not** force all three images into identical boxes.
 
-**02 — TASKS + GATES**
+Use an asymmetric layout that respects their content:
 
-Headline:
+- **Analyze:** approximately 35% of available screenshot width
+- **Tasks + Gates:** approximately 27% of available screenshot width
+- **Implement:** approximately 38% of available screenshot width
 
-**Turn intent into executable work**
+The middle Tasks screenshot can be taller and narrower. The Analyze and Implement screenshots can be wider.
 
-Large screenshot placeholder label:
+Maintain the original aspect ratios and do not distort the images.
 
-**Insert screenshot: `Tasks: Export Account Summary`**
-
-One-line caption:
-
-**Creates reviewable tasks and validates readiness before coding.**
-
-Prefer the `Tasks: Export Account Summary` screenshot because it visibly shows phased work, task IDs, prerequisites, tests, and file paths.
-
-The `Specification Quality Checklist` screenshot is a backup option if the tasks screenshot does not crop well.
+If necessary, crop screenshots rather than scaling the complete screenshots down.
 
 ---
 
-## STAGE 3 — IMPLEMENT
+## Crop priorities
 
-Stage label:
+### Analyze
+Prioritize:
+- `/speckit.analyze`
+- `Specification Analysis Report`
+- `No files were modified`
+- the findings table showing Severity / Location / Summary / Recommendation
 
-**03 — IMPLEMENT**
+The purpose is to make the read-only consistency check visible.
 
-Headline:
+### Tasks + Gates
+Prioritize:
+- `Tasks: Export Account Summary`
+- prerequisites and readiness status
+- Phase 1 and Phase 2 headings
+- the first concrete implementation tasks
+- visible task IDs, tests, and file paths where readable
 
-**Code only after the gates pass**
+The purpose is to show intent becoming concrete, ordered, testable work.
 
-Large screenshot placeholder label:
+### Implement
+Prioritize:
+- `/speckit.implement`
+- implementation preflight
+- prerequisite/checklist checking
+- especially the line showing that the **checklist gate passes**
+- the transition into repository action
 
-**Insert screenshot: `/speckit.implement` preflight**
-
-One-line caption:
-
-**Copilot loads the approved context, checks prerequisites, then acts.**
-
-Use the screenshot showing `/speckit.implement` where Copilot reads the implementation context, checks prerequisites/checklist status, and prepares to edit the repository.
+The purpose is to show that Copilot acts only after the approved context and gates are loaded and checked.
 
 ---
 
 ## Bottom takeaway
 
-Keep a thin, full-width burgundy takeaway banner at the bottom.
+Only if there is enough room without reducing screenshot size, add a small single-line takeaway at the bottom:
 
-Use:
+**Artifacts → Quality Gates → Code**
 
-**Artifacts first. Quality gates next. Code after.**
+Do **not** use a large colored banner for this takeaway.
 
-Do not make the banner tall.
-
----
-
-## Visual guidance
-
-- The screenshots are the evidence and must be the visual focus.
-- Use only minimal labels and captions.
-- Keep arrows between the three stages to reinforce progression.
-- Keep stage 1 and 3 burgundy accents and stage 2 teal, matching the existing deck.
-- Use subtle borders around screenshot placeholders.
-- Do not duplicate the detailed five-step workflow from the previous slide.
-- This slide should feel like a **visual walkthrough of real Spec Kit outputs**, not a documentation page.
-- Leave enough room for manual cropping so the readable part of each screenshot can be enlarged.
+If the takeaway competes with screenshot size, omit it completely.
 
 ---
 
-## Screenshot selection guidance
+## Desired visual hierarchy
 
-Use these three screenshots in this order:
+1. **Screenshots — dominant**
+2. **Main slide title**
+3. **Three short stage labels/headlines**
+4. Everything else secondary or removed
 
-1. **Analyze:** the `/speckit.analyze` screenshot with the `Specification Analysis Report` table showing severity, locations, summaries, and recommendations.
-2. **Tasks + Gates:** the `Tasks: Export Account Summary` screenshot showing phased tasks, prerequisites, tests, and concrete file paths.
-3. **Implement:** the `/speckit.implement` preflight screenshot showing checks of hooks, prerequisites, checklist status, and repository readiness before coding.
+Do not add icons, stock imagery, AI illustrations, decorative diagrams, bullet lists, or explanatory paragraphs.
 
-Do not use the Constitution screenshot as one of the three primary images on this slide. Constitution is already covered in the conceptual workflow slide.
-
-Do not use both Analyze screenshots; use only the report-table version.
+The audience should immediately perceive that these are **real outputs from an actual Spec Kit workflow**, and the important areas of each screenshot should be substantially easier to see from a presentation screen.
 
 ---
 
 ## Speaker intent
 
-The slide should make it easy to say:
+The slide should visually support this short explanation:
 
-> “This is the real output of the workflow. Analyze finds inconsistencies. Tasks turn the approved design into reviewable work. Only after the gates pass does Copilot start acting on the codebase.”
+> “These are real outputs from the workflow. Analyze catches inconsistencies before coding. Tasks turns the approved design into executable work. Then Implement checks the gates and only then lets the coding agent act.”
 
-The audience should leave understanding that Spec Kit produces **visible, reviewable artifacts and quality gates before code generation**.
+The slide should feel like **evidence**, not documentation.
