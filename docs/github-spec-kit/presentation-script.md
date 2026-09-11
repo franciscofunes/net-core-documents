@@ -85,7 +85,9 @@ This is a good example of persistent context. Instead of the investigation livin
 
 The goal is not to invent a new architecture. The goal is to fit the feature into what already exists.
 
-Then **Tasks and Gates** turn the approved plan into executable work and validate it before coding.
+Then **Tasks and Gates** turn the approved plan into executable work and validate it before coding. `tasks.md` breaks the implementation into dependency-ordered work with concrete task IDs, phases and file-level actions, while the gates check prerequisites and checklist status before the agent starts changing code.
+
+This means we can review not only the design, but also the proposed implementation sequence and whether the requirements are ready enough to proceed.
 
 During **Implement**, Copilot uses normal coding-agent tools like search, read, edit, terminal and tests.
 
