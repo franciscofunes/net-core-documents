@@ -77,6 +77,17 @@ Next comes **Plan**.
 
 This is especially important in a brownfield application. The agent investigates the existing Reporting Dashboard, filter state, Angular services, API patterns, authorization, export utilities, tests and architecture.
 
+That investigation can be captured in `research.md`. In this context, `research.md` is the durable record of what the agent learned about the existing system before finalizing the implementation plan: relevant patterns, existing services and endpoints, architectural constraints, testing conventions and technical decisions discovered during exploration.
+
+So a useful mental model is:
+
+- `spec.md` = **WHAT + WHY**
+- `research.md` = **WHAT WE LEARNED ABOUT THE EXISTING SYSTEM**
+- `plan.md` = **HOW WE WILL IMPLEMENT IT**
+- `tasks.md` = **WHAT WE WILL DO**
+
+This is a good example of persistent context. Instead of the investigation living only inside one chat session, the important findings can become a repository artifact that informs the plan and later steps.
+
 The goal is not to invent a new architecture. The goal is to fit the feature into what already exists.
 
 Then **Tasks and Gates** turn the approved plan into executable work and validate it before coding.
