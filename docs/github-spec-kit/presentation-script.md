@@ -81,14 +81,6 @@ That investigation can be captured in `research.md`. In this context, `research.
 
 Plan can also produce supporting artifacts when they are relevant to the feature, such as `data-model.md`, interface contracts under `contracts/`, and `quickstart.md`, which provides runnable end-to-end validation guidance. So `plan.md` is not necessarily the only output of planning — Spec Kit can materialize the technical context that later steps need.
 
-So a useful mental model is:
-
-- `spec.md` = **WHAT + WHY**
-- `research.md` = **WHAT WE LEARNED ABOUT THE EXISTING SYSTEM**
-- `plan.md` = **HOW WE WILL IMPLEMENT IT**
-- supporting design artifacts = **MODEL, CONTRACTS AND VALIDATION WHEN NEEDED**
-- `tasks.md` = **WHAT WE WILL DO**
-
 This is a good example of persistent context. Instead of the investigation living only inside one chat session, the important findings can become repository artifacts that inform the plan and later steps.
 
 The goal is not to invent a new architecture. The goal is to fit the feature into what already exists.
