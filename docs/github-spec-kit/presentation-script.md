@@ -79,14 +79,17 @@ This is especially important in a brownfield application. The agent investigates
 
 That investigation can be captured in `research.md`. In this context, `research.md` is the durable record of what the agent learned about the existing system before finalizing the implementation plan: relevant patterns, existing services and endpoints, architectural constraints, testing conventions and technical decisions discovered during exploration.
 
+Plan can also produce supporting artifacts when they are relevant to the feature, such as `data-model.md`, interface contracts under `contracts/`, and `quickstart.md`, which provides runnable end-to-end validation guidance. So `plan.md` is not necessarily the only output of planning — Spec Kit can materialize the technical context that later steps need.
+
 So a useful mental model is:
 
 - `spec.md` = **WHAT + WHY**
 - `research.md` = **WHAT WE LEARNED ABOUT THE EXISTING SYSTEM**
 - `plan.md` = **HOW WE WILL IMPLEMENT IT**
+- supporting design artifacts = **MODEL, CONTRACTS AND VALIDATION WHEN NEEDED**
 - `tasks.md` = **WHAT WE WILL DO**
 
-This is a good example of persistent context. Instead of the investigation living only inside one chat session, the important findings can become a repository artifact that informs the plan and later steps.
+This is a good example of persistent context. Instead of the investigation living only inside one chat session, the important findings can become repository artifacts that inform the plan and later steps.
 
 The goal is not to invent a new architecture. The goal is to fit the feature into what already exists.
 
@@ -94,7 +97,7 @@ Then **Tasks and Gates** turn the approved plan into executable work and validat
 
 During **Implement**, Copilot uses normal coding-agent tools like search, read, edit, terminal and tests.
 
-Finally, **Converge** verifies the result against the artifacts.
+Finally, **Converge** verifies the result against the artifacts. If it finds remaining gaps, it can append traceable convergence tasks to `tasks.md`; those tasks then go back through Implement rather than Converge silently rewriting the specification or application code.
 
 So the key message is:
 
@@ -113,6 +116,8 @@ The important detail is that no code is modified at this stage.
 In the middle, we have **Tasks and Gates**.
 
 Here the approved intent becomes concrete work. We can see task IDs, prerequisites, phases, tests and actual file paths.
+
+The gates also include requirements-quality checklists. `checklists/requirements.md` validates the quality of the specification rather than containing the requirements themselves, and optional domain-specific checklists can add focused gates for concerns such as UX, API design or security.
 
 That makes the plan reviewable before the coding agent starts changing the application.
 
